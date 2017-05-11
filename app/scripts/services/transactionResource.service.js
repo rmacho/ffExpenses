@@ -5,10 +5,10 @@
 		var transactions = $resource(constants.URL.getTransactions, {}, {
 			query:  {method:'GET', isArray:true }
 		});
-			
+
 
 		function getTransaction(){
-			return transactions.get({}).$promise;
+			return transactions.query({}).$promise;
 		}
 
 

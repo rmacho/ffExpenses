@@ -11,10 +11,9 @@
 	function MainCtrl(transactionResource){
 		var vm = this;
 
-		vm.transactionData = [],
+		vm.transactionData = [];
 
-		getTransactionInfo();
-
+	
 
 		//vm.getGameInfo = getGameInfo;
 
@@ -25,6 +24,8 @@
 				console.log('result: ' + result);
 			});
 		}
+
+		getTransactionInfo();
 
 
 		vm.awesomeThings = "TEST To See if it works";

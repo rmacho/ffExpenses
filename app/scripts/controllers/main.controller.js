@@ -1,39 +1,42 @@
-(function() {
-	'use strict';
+(function () {
+  'use strict';
 
-	/**
-	 * @ngdoc function
-	 * @name gameViewApp.controller:MainCtrl
-	 * @description
-	 * # MainCtrl
-	 * Controller of the gameViewApp
-	 */
-	function MainCtrl(transactionResource){
-		var vm = this;
+  /**
+   * @ngdoc function
+   * @name gameViewApp.controller:MainCtrl
+   * @description
+   * # MainCtrl
+   * Controller of the gameViewApp
+   */
+  function MainCtrl(transactionResource) {
+    var vm = this;
 
-		vm.transactionData = [];
-
-	
-
-		//vm.getGameInfo = getGameInfo;
+    vm.transactionData = [];
 
 
-		function getTransactionInfo(){
-			transactionResource.getTransaction().then(function(result){
-				vm.transactionData = result;
-				console.log('result: ' + result);
-			});
-		}
+    function getTransactionInfo() {
+      transactionResource.getTransaction().then(function (result) {
 
-		getTransactionInfo();
+        angular.forEach(result, function (transaction) {
+          transaction.formattedDate = getFormattedTransactionDate(transaction);
+        });
+        vm.transactionData = result;
+      });
+    }
+
+    function getFormattedTransactionDate(transaction) {
+      return transaction.date.dayOfMonth + '-' + transaction.date.monthValue + '-' + transaction.date.year;
+    }
 
 
-		vm.awesomeThings = 'TEST To See if it works';
-	}
+    getTransactionInfo();
 
-	MainCtrl.$inject = ['transactionResourceService'];
+    vm.awesomeThings = 'TEST To See if it works';
+  }
 
-	angular
-		.module('ffExpensesApp')
-		.controller('MainCtrl', MainCtrl);
+  MainCtrl.$inject = ['transactionResourceService'];
+
+  angular
+    .module('ffExpensesApp')
+    .controller('MainCtrl', MainCtrl);
 })();

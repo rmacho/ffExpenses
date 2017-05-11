@@ -8,10 +8,11 @@
    * # MainCtrl
    * Controller of the gameViewApp
    */
-  function MainCtrl(transactionResource) {
+  function MainCtrl(transactionResource, $window) {
     var vm = this;
 
     vm.transactionData = [];
+    
 
 
     function getTransactionInfo() {
@@ -24,17 +25,27 @@
       });
     }
 
+    function setTransactionFreeze(receiberIban, freezeValue){
+    	$window.localStorage[receiberIban] = freezeValue;
+    }
+
+    function getTransactionFreeze(transaction){
+    	return JSON.parse( $window.localStorage[transaction.receiberIban] || false );
+    }
+
     function getFormattedTransactionDate(transaction) {
       return transaction.date.dayOfMonth + '-' + transaction.date.monthValue + '-' + transaction.date.year;
     }
 
 
     getTransactionInfo();
+    vm.getFreeze = getTransactionFreeze;
+    vm.setFreeze = setTransactionFreeze;
 
     vm.awesomeThings = 'TEST To See if it works';
   }
 
-  MainCtrl.$inject = ['transactionResourceService'];
+  MainCtrl.$inject = ['transactionResourceService', '$window'];
 
   angular
     .module('ffExpensesApp')

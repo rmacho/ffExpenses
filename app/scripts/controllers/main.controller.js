@@ -13,6 +13,7 @@
 
 		vm.transactionData = [];
 
+	
 
 		//vm.getGameInfo = getGameInfo;
 
@@ -25,6 +26,8 @@
     }
 
     getTransactionInfo();
+
+		getTransactionInfo();
 
 
 		vm.awesomeThings = "TEST To See if it works";

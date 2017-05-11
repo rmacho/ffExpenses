@@ -40,6 +40,7 @@ body {
 
 .col-xs-12 {
   font-size: 12px;
+  margin-top: 7px;
 }
 
 .spacing-top {
@@ -49,8 +50,20 @@ body {
     float: none;
 }
 
+.spacing-top-image {
+    padding-top: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
 .nopadding {
    padding: 0 !important;
+}
+
+.iban {
+  margin-left: 42px;
+  color: gray;
 }
 
 

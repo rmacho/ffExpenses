@@ -1,17 +1,38 @@
-'use strict';
+(function() {
+	'use strict';
 
-/**
- * @ngdoc function
- * @name ffExpensesApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the ffExpensesApp
- */
-angular.module('ffExpensesApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	/**
+	 * @ngdoc function
+	 * @name gameViewApp.controller:MainCtrl
+	 * @description
+	 * # MainCtrl
+	 * Controller of the gameViewApp
+	 */
+	function MainCtrl(transactionResource){
+		var vm = this;
+
+		vm.transactionData = [],
+
+		getTransactionInfo();
+
+
+		//vm.getGameInfo = getGameInfo;
+
+
+		function getTransactionInfo(){
+			transactionResource.getTransaction().then(function(result){
+				vm.transactionData = result;
+				console.log('result: ' + result);
+			});
+		}
+
+
+		vm.awesomeThings = "TEST To See if it works";
+	}
+
+	MainCtrl.$inject = ['transactionResourceService'];
+
+	angular
+		.module('ffExpensesApp')
+		.controller('MainCtrl', MainCtrl);
+})();

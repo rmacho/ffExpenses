@@ -24,6 +24,11 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/freeze', {
+        templateUrl: 'views/freezeFixedIncome.html',
+        controller: 'FixedIncomeController',
+        controllerAs: 'fixedIncome'
+      })
       .otherwise({
         redirectTo: '/'
       });

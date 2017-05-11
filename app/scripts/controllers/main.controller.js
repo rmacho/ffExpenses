@@ -28,7 +28,7 @@
 		getTransactionInfo();
 
 
-		vm.awesomeThings = "TEST To See if it works";
+		vm.awesomeThings = 'TEST To See if it works';
 	}
 
 	MainCtrl.$inject = ['transactionResourceService'];

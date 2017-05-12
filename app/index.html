@@ -22,7 +22,7 @@
 
     <!-- Add your site or application content here -->
     <div>
-      <div class="navbar navbar-default" role="navigation">
+      <!-- <div class="navbar navbar-default" role="navigation">
         <div class="container">
 
 
@@ -51,6 +51,18 @@
           </div>
 
         </div>
+      </div> -->
+      <div class="navbar-header">
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a class="active" ng-href="#/"><i class="glyphicon glyphicon-indent-left"></i> Overzicht</a>
+        <a ng-href="#/"><i class="glyphicon glyphicon-eur"></i> Overboeken</a>
+        <a ng-href="#/"><i class="glyphicon glyphicon-envelope"></i> Berichten</a>
+        <a ng-href="#!/freeze"><i class="glyphicon glyphicon-list-alt"></i> Vaste lasten instellen</a>
+        <a ng-href="#/"><i class="glyphicon glyphicon-bell"></i> Hulp</a>
+        <a ng-href="#/"><i class="glyphicon glyphicon-off"></i> Uitloggen</a>
+      </div>
+      <span class="navbar-brand-blue" onclick="openNav()">&#9776; Freeze app</span>
       </div>
     </div>
 
@@ -78,6 +90,16 @@
         <script src="scripts/controllers/fixedIncome.controller.js"></script>
         <script src="scripts/services/transactionResource.service.js"></script>
         <script src="scripts/constants/constants.js"></script>
+        <script>
+          function openNav() {
+              document.getElementById("mySidenav").style.width = "240px";
+          }
+
+          function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("main").style.marginLeft= "0";
+          }
+        </script>
         <!-- endbuild -->
 </body>
 </html>

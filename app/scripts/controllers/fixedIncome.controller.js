@@ -5,6 +5,8 @@
     var vm = this;
 
     vm.transactionData = [];
+    vm.hasIncassantId = hasIncassantId;
+    vm.freezeTransaction = setTransactionFreeze;
 
 
     function getTransactionInfo() {

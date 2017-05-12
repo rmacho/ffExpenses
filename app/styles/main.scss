@@ -74,6 +74,19 @@ body {
   background-color: white;
 }
 
+.navbar-header {
+  background-color: rgb(101,18,150);
+}
+
+.navbar-brand-blue {
+  color: rgb(107,205,234);
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

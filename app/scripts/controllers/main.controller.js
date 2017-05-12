@@ -36,7 +36,7 @@
 
     function getTotalAfterFreeze(){
     	vm.totalAfterFreeze = vm.saldo;
-    	angular.forEach(m.transactionData , function (transaction) {
+    	angular.forEach(vm.transactionData , function (transaction) {
               if (getTransactionFreeze(transaction) {
               	vm.totalAfterFreeze = vm.totalAfterFreeze - transaction.amount;
               }
@@ -47,6 +47,7 @@
 
     getTransactionInfo();
     getSaldoInfo();
+    getTotalAfterFreeze();
 
     vm.getFreeze = getTransactionFreeze;
     vm.setFreeze = setTransactionFreeze;

@@ -14,7 +14,8 @@
           }
         ])}
 			}),
-			saldo = $resource(constants.URL.getSaldo, {});
+			saldo = $resource(constants.URL.getSaldo, {}, {
+        query:  {method:'GET', isArray:true}});
 
     function getFormattedTransactionDate(transaction) {
       return transaction.date.dayOfMonth + '-' + transaction.date.monthValue + '-' + transaction.date.year;
@@ -25,7 +26,7 @@
 		}
 
 		function getSaldo(){
-			return saldo.get({}).$promise;
+			return saldo.query({}).$promise;
 		}
 
 

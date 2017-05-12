@@ -16,10 +16,6 @@
 
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
-
-        angular.forEach(result, function (transaction) {
-          transaction.formattedDate = getFormattedTransactionDate(transaction);
-        });
         vm.transactionData = result;
       });
     }
@@ -38,14 +34,10 @@
     	return JSON.parse( $window.localStorage[transaction.receiverIban] || false );
     }
 
-    function getFormattedTransactionDate(transaction) {
-      return transaction.date.dayOfMonth + '-' + transaction.date.monthValue + '-' + transaction.date.year;
-    }
-
 
     getTransactionInfo();
     getSaldoInfo();
-    
+
     vm.getFreeze = getTransactionFreeze;
     vm.setFreeze = setTransactionFreeze;
 

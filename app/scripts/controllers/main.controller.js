@@ -12,6 +12,7 @@
     var vm = this;
 
     vm.transactionData = [];
+    vm.saldo = 0.0;
 
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
@@ -21,6 +22,12 @@
         });
         vm.transactionData = result;
       });
+    }
+
+    function getSaldoInfo() {
+    	transactionResource.getSaldo().then(function(result) {
+    		vm.saldo = result;
+    	});
     }
 
     function setTransactionFreeze(receiverIban, freezeValue){
@@ -37,6 +44,8 @@
 
 
     getTransactionInfo();
+    getSaldoInfo();
+    
     vm.getFreeze = getTransactionFreeze;
     vm.setFreeze = setTransactionFreeze;
 

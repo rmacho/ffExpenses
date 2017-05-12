@@ -18,7 +18,7 @@
     <div class="col-xs-10 nopadding"><span class="spacing-top">{{transaction.receiver}}</span></div>
     <div class="col-xs-2 nopadding"><span class="spacing-top">&euro; {{transaction.amount}}</span></div>
     <div class="col-xs-12 nopadding">{{transaction.formattedDate}}</div>
-    <button class="button" ng-click="ctrl.freezeTransaction(transaction.receiverIban, !ctrl.getFreeze(transaction))">{{ctrl.getFreeze(transaction) ? "Freeze" : "Unlock"}}</button>
+    <button class="button" ng-click="ctrl.freezeTransaction(transaction.receiverIban, !ctrl.getFreeze(transaction))">{{ctrl.getFreeze(transaction) ? "Unlock" : "Freeze"}}</button>
 
   </div>
 

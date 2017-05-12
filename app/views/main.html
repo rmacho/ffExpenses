@@ -14,7 +14,7 @@
   </div>
   <div class="row">
       <div class="col-sm-12 " ng-repeat="transaction in ctrl.transactionData"
-            ng-class="ctrl.getFreeze(transaction) ? 'freeze' : 'no_freeze'>
+            ng-class="ctrl.getFreeze(transaction) ? 'freeze' : 'no_freeze'">
         <div class="col-xs-10 nopadding"><span class="spacing-top">{{transaction.receiver}}</span></div>
         <div class="col-xs-2 nopadding"><span class="spacing-top">&euro; {{transaction.amount}}</span></div>
         <div class="col-xs-12 nopadding">{{transaction.formattedDate}}</div>

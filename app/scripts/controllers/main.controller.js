@@ -12,8 +12,6 @@
     var vm = this;
 
     vm.transactionData = [];
-    
-
 
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
@@ -25,12 +23,12 @@
       });
     }
 
-    function setTransactionFreeze(receiberIban, freezeValue){
-    	$window.localStorage[receiberIban] = freezeValue;
+    function setTransactionFreeze(receiverIban, freezeValue){
+    	$window.localStorage[receiverIban] = freezeValue;
     }
 
     function getTransactionFreeze(transaction){
-    	return JSON.parse( $window.localStorage[transaction.receiberIban] || false );
+    	return JSON.parse( $window.localStorage[transaction.receiverIban] || false );
     }
 
     function getFormattedTransactionDate(transaction) {

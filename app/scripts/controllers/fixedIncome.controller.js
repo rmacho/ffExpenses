@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  function FixedIncomeController(transactionResource) {
+  function FixedIncomeController(transactionResource, $window) {
     var vm = this;
 
     vm.transactionData = [];
@@ -22,11 +22,13 @@
     }
 
 
-    //getTransactionInfo();
+    function setTransactionFreeze(receiverIban, freezeValue){
+      $window.localStorage[receiverIban] = freezeValue;
+    }
 
   }
 
-  FixedIncomeController.$inject = ['transactionResourceService'];
+  FixedIncomeController.$inject = ['transactionResourceService', '$window'];
 
   angular
     .module('ffExpensesApp')

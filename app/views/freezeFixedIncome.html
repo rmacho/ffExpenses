@@ -1,18 +1,32 @@
 <div ng-controller="FixedIncomeController as ctrl">
-  <!--<div class="row">-->
-    <!--<div class="col-xs-4 text-center"><a class="spacing" href="">BIJ EN AF</a></div>-->
-    <!--<div class="col-xs-4 text-center"><a class="spacing" href="">INZICHT</a></div>-->
-    <!--<div class="col-xs-4 text-center"><a class="spacing" href="">GEPLAND</a></div>-->
-  <!--</div>-->
-  <!--<div class="row">-->
-    <!--<div class="col-sm-12 ">-->
-      <!--<div ng-repeat="transaction in ctrl.transactionData" ng-if="transaction.incassantId">-->
-        <!--<div class="col-xs-10 nopadding"><span class="spacing-top">{{transaction.receiver}}</span></div>-->
-        <!--<div class="col-xs-2 nopadding"><span class="spacing-top">&euro; {{transaction.amount}}</span></div>-->
-        <!--<div class="col-xs-12 nopadding">{{transaction.formattedDate}}</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+  <div class="row">
+    <div class="col-sm-12 ">
+      <div class="col-xs-2 nopadding"><img class="spacing-top-image" src="http://placehold.it/40x25"></div>
+      <div class="col-xs-8 nopadding"><span >basis priverekening</span></div>
+      <div class="col-xs-2 nopadding">&euro; -45,36</div>
+      <div class="col-xs-10 iban">NL46 SNSB 08766 7256 87</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 ">
+      <span class="spacing-top">De bedragen instellen die maandelijks kunnen worden geïncasseerd door de desbetreffende organisatie</span>
+    </div>
+  </div>
+  <div ng-repeat=""
+  <div class="row" ng-if="fixed-transaction">
+    <div class="col-sm-12 fixed-transaction">
+      <div class="col-xs-10 nopadding"><span class="spacing-top">{{transaction.receiver}}asdf</span></div>
+      <div class="col-xs-2 nopadding"><span class="spacing-top">&euro; {{transaction.amount}}asdf</span></div>
+      <div class="col-xs-12 nopadding">{{transaction.formattedDate}}asdf</div>
+    </div>
+  </div>
+  <div class="row" ng-if="!fixed-transaction">
+    <div class="col-sm-12">
+      <div class="col-xs-10 nopadding"><span class="spacing-top">{{transaction.receiver}}asdf</span></div>
+      <div class="col-xs-2 nopadding"><span class="spacing-top">&euro; {{transaction.amount}}asdf</span></div>
+      <div class="col-xs-12 nopadding">{{transaction.formattedDate}}asdf</div>
+    </div>
+  </div>
 
   test
 

@@ -8,11 +8,11 @@
    * # MainCtrl
    * Controller of the gameViewApp
    */
-  function MainCtrl(transactionResource, $window) {
+  function MainCtrl(transactionResource, $window, $timeout) {
     var vm = this;
 
     vm.transactionData = [];
-    vm.saldo = 0.0;
+    vm.saldo = [];
 
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
@@ -22,7 +22,7 @@
 
     function getSaldoInfo() {
     	transactionResource.getSaldo().then(function(result) {
-    		vm.saldo = result;
+        vm.saldo = result[0];
     	});
     }
 
@@ -55,7 +55,7 @@
     vm.awesomeThings = 'TEST To See if it works';
   }
 
-  MainCtrl.$inject = ['transactionResourceService', '$window'];
+  MainCtrl.$inject = ['transactionResourceService', '$window', '$timeout'];
 
   angular
     .module('ffExpensesApp')

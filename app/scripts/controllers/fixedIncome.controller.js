@@ -7,6 +7,7 @@
     vm.transactionData = [];
     vm.hasIncassantId = hasIncassantId;
     vm.freezeTransaction = setTransactionFreeze;
+    vm.getFreeze = getTransactionFreeze;
 
 
     function getTransactionInfo() {
@@ -21,6 +22,10 @@
 
     function setTransactionFreeze(receiverIban, freezeValue){
       $window.localStorage[receiverIban] = freezeValue;
+    }
+
+    function getTransactionFreeze(transaction){
+      return JSON.parse( $window.localStorage[transaction.receiverIban] || false );
     }
 
     getTransactionInfo();

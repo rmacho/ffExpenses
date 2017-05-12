@@ -124,6 +124,22 @@ body {
     margin-left: 50px;
 }
 
+.button {
+    background-color: #651296;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 11px;
+    margin-top: 9px;
+}
+
+.overview {
+  height: 90px;
+}
+
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,

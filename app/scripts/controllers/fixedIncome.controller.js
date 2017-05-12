@@ -5,6 +5,7 @@
     var vm = this;
 
     vm.transactionData = [];
+    vm.saldo = [];
     vm.hasIncassantId = hasIncassantId;
     vm.freezeTransaction = setTransactionFreeze;
     vm.getFreeze = getTransactionFreeze;
@@ -13,6 +14,12 @@
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
         vm.transactionData = result;
+      });
+    }
+
+    function getSaldoInfo() {
+      transactionResource.getSaldo().then(function(result) {
+        vm.saldo = result[0];
       });
     }
 
@@ -29,6 +36,7 @@
     }
 
     getTransactionInfo();
+    getSaldoInfo();
 
   }
 

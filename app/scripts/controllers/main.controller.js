@@ -8,7 +8,7 @@
    * # MainCtrl
    * Controller of the gameViewApp
    */
-  function MainCtrl(transactionResource, $window, $timeout) {
+  function MainCtrl(transactionResource, $window) {
     var vm = this;
 
     vm.transactionData = [];
@@ -55,7 +55,7 @@
     vm.awesomeThings = 'TEST To See if it works';
   }
 
-  MainCtrl.$inject = ['transactionResourceService', '$window', '$timeout'];
+  MainCtrl.$inject = ['transactionResourceService', '$window'];
 
   angular
     .module('ffExpensesApp')

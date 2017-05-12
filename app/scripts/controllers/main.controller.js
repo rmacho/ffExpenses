@@ -16,10 +16,6 @@
 
     function getTransactionInfo() {
       transactionResource.getTransaction().then(function (result) {
-
-        angular.forEach(result, function (transaction) {
-          transaction.formattedDate = getFormattedTransactionDate(transaction);
-        });
         vm.transactionData = result;
       });
     }

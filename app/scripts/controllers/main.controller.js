@@ -34,12 +34,23 @@
     	return JSON.parse( $window.localStorage[transaction.receiverIban] || false );
     }
 
+    function getTotalAfterFreeze(){
+    	vm.totalAfterFreeze = vm.saldo;
+    	angular.forEach(m.transactionData , function (transaction) {
+              if (getTransactionFreeze(transaction) {
+              	vm.totalAfterFreeze = vm.totalAfterFreeze - transaction.amount;
+              }
+        });
+        return vm.totalAfterFreeze;
+    }
+
 
     getTransactionInfo();
     getSaldoInfo();
 
     vm.getFreeze = getTransactionFreeze;
     vm.setFreeze = setTransactionFreeze;
+    vm.getTotalAfterFreeze = getTotalAfterFreeze;
 
     vm.awesomeThings = 'TEST To See if it works';
   }

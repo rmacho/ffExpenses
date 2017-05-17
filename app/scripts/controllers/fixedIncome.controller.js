@@ -1,49 +1,47 @@
 (function () {
-  'use strict';
+  'use strict'
 
-  function FixedIncomeController(transactionResource, $window) {
-    var vm = this;
+  function FixedIncomeController (transactionResource, $window) {
+    var vm = this
 
-    vm.transactionData = [];
-    vm.saldo = [];
+    vm.transactionData = []
+    vm.saldo = []
 
-
-    function getTransactionInfo() {
+    function getTransactionInfo () {
       transactionResource.getTransaction().then(function (result) {
-        vm.transactionData = result;
-      });
+        vm.transactionData = result
+      })
     }
 
-    function getSaldoInfo() {
-      transactionResource.getSaldo().then(function(result) {
-        vm.saldo = result[0];
-      });
+    function getSaldoInfo () {
+      transactionResource.getSaldo().then(function (result) {
+        vm.saldo = result[0]
+      })
     }
 
-    function hasIncassantId(transaction) {
-      return transaction.incassantId !== null;
+    function hasIncassantId (transaction) {
+      return transaction.incassantId !== null
     }
 
-    function setTransactionFreeze(receiverIban, freezeValue){
-      $window.localStorage[receiverIban] = freezeValue;
+    function setTransactionFreeze (receiverIban, freezeValue) {
+      $window.localStorage[receiverIban] = freezeValue
     }
 
-    function getTransactionFreeze(transaction){
-      return JSON.parse( $window.localStorage[transaction.receiverIban] || false );
+    function getTransactionFreeze (transaction) {
+      return JSON.parse($window.localStorage[transaction.receiverIban] || false)
     }
 
-    vm.hasIncassantId = hasIncassantId;
-    vm.freezeTransaction = setTransactionFreeze;
-    vm.getFreeze = getTransactionFreeze;
+    vm.hasIncassantId = hasIncassantId
+    vm.freezeTransaction = setTransactionFreeze
+    vm.getFreeze = getTransactionFreeze
 
-    getTransactionInfo();
-    getSaldoInfo();
-
+    getTransactionInfo()
+    getSaldoInfo()
   }
 
-  FixedIncomeController.$inject = ['transactionResourceService', '$window'];
+  FixedIncomeController.$inject = ['transactionResourceService', '$window']
 
   angular
     .module('ffExpensesApp')
-    .controller('FixedIncomeController', FixedIncomeController);
-})();
+    .controller('FixedIncomeController', FixedIncomeController)
+})()

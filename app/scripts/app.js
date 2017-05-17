@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 /**
  * @ngdoc overview
@@ -31,5 +31,5 @@ angular
       })
       .otherwise({
         redirectTo: '/'
-      });
-  });
+      })
+  })

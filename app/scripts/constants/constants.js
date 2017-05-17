@@ -4,8 +4,9 @@
 	angular.module('ffExpensesApp')
 		.constant('config', {
 			URL: {
-				getTransactions: 'http://localhost:8080/transactions/',
-				getSaldo: 'http://localhost:8080/saldo/'
+				//getTransactions: 'http://localhost:8080/transactions/',
+				getTransactions: 'transactions/',
+				getSaldo: 'saldo/'
 			}
 		});
 

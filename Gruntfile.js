@@ -8,9 +8,11 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  var ngApimock = require('ng-apimock/lib/utils');
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
@@ -24,6 +26,8 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
   };
+
+  grunt.loadNpmTasks('grunt-ng-apimock');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -47,6 +51,10 @@ module.exports = function (grunt) {
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
+      },
+      mocks: {
+        files:['test/mocks/**/*.json'],
+        tasks:['ngApimock']
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -80,6 +88,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
+              ngApimock.ngApimockRequest,
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -89,22 +98,26 @@ module.exports = function (grunt) {
                 '/app/styles',
                 connect.static('./app/styles')
               ),
+              connect().use('/mocking', connect.static('.tmp/mocking')),
               connect.static(appConfig.app)
             ];
           }
         }
       },
+      
       test: {
         options: {
           port: 9001,
           middleware: function (connect) {
             return [
+              ngApimock.ngApimockRequest,
               connect.static('.tmp'),
               connect.static('test'),
               connect().use(
                 '/bower_components',
                 connect.static('./bower_components')
               ),
+              connect().use('/mocks', connect.static('test/mocks')),
               connect.static(appConfig.app)
             ];
           }
@@ -456,6 +469,14 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    ngApimock: {
+      options: {
+        defaultOutputDir: '.tmp/mocking'
+      },
+      mock:{
+        src: 'test/mocks'
+      }
     }
   });
 
@@ -467,6 +488,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngApimock',
       'wiredep',
       'concurrent:server',
       'postcss:server',
@@ -504,7 +526,8 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'ngApimock'
   ]);
 
   grunt.registerTask('default', [

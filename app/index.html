@@ -55,10 +55,10 @@
       <div class="navbar-header">
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a class="active" ng-href="#/"><i class="glyphicon glyphicon-indent-left"></i> Overzicht</a>
+        <a class="active" ng-href="#/" onclick="closeNav()"><i class="glyphicon glyphicon-indent-left"></i> Overzicht</a>
         <a ng-href="#/"><i class="glyphicon glyphicon-eur"></i> Overboeken</a>
         <a ng-href="#/"><i class="glyphicon glyphicon-envelope"></i> Berichten</a>
-        <a ng-href="#!/freeze"><i class="glyphicon glyphicon-list-alt"></i> Vaste lasten instellen</a>
+        <a ng-href="#!/freeze" onclick="closeNav()"><i class="glyphicon glyphicon-list-alt"></i> Vaste lasten instellen</a>
         <a ng-href="#/"><i class="glyphicon glyphicon-bell"></i> Hulp</a>
         <a ng-href="#/"><i class="glyphicon glyphicon-off"></i> Uitloggen</a>
       </div>
@@ -97,7 +97,7 @@
 
           function closeNav() {
               document.getElementById("mySidenav").style.width = "0";
-              document.getElementById("main").style.marginLeft= "0";
+              //document.getElementById("main").style.marginLeft= "0";
           }
         </script>
         <!-- endbuild -->

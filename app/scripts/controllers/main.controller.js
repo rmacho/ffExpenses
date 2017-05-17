@@ -48,10 +48,10 @@
     	vm.totalAfterFreeze = vm.saldo;
     	angular.forEach(vm.transactionData , function (transaction) {
               if (getTransactionFreeze(transaction)){
-              	vm.totalAfterFreeze = vm.totalAfterFreeze - transaction.amount;
+              	vm.totalAfterFreeze = (vm.totalAfterFreeze - transaction.amount).toFixed(2);
               }
         });
-        return vm.totalAfterFreeze;
+        return (vm.totalAfterFreeze);
     }
 
     $scope.$watch('$window.localStorage', function () {

@@ -1,0 +1,115 @@
+{
+    "expression": "transactions",
+    "method": "GET",
+    "name": "Get transactions",
+    "isArray": true,
+    "responses": {
+        "transaction_success" : {
+            "default": true,
+            "status": 200,
+            "data": [
+  {
+    "id": 654564,
+    "amount": 4.25,
+    "comment": "Broodje",
+    "receiver": "Brood & Co",
+    "receiverIban": "NL55INGB03055869544",
+    "date": {
+      "hour": 20,
+      "minute": 28,
+      "nano": 782000000,
+      "second": 37,
+      "dayOfMonth": 11,
+      "dayOfWeek": "THURSDAY",
+      "dayOfYear": 131,
+      "month": "MAY",
+      "monthValue": 5,
+      "year": 2017,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      }
+    },
+    "incassantId": null,
+    "frozen": false
+  },
+  {
+    "id": 121212,
+    "amount": 54.95,
+    "comment": "Schoenen",
+    "receiver": "Van Haren",
+    "receiverIban": "NL12ABNA02016523223",
+    "date": {
+      "hour": 20,
+      "minute": 28,
+      "nano": 785000000,
+      "second": 37,
+      "dayOfMonth": 11,
+      "dayOfWeek": "THURSDAY",
+      "dayOfYear": 131,
+      "month": "MAY",
+      "monthValue": 5,
+      "year": 2017,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      }
+    },
+    "incassantId": null,
+    "frozen": false
+  },
+  {
+    "id": 121212,
+    "amount": 39.12,
+    "comment": "Aanslagnummer:00000000000000040219846Gecomb aanslag 2017 Amsterdam Restbedrag eur 234,75",
+    "receiver": "Gemeente Amsterdam Belastingen",
+    "receiverIban": "NL85INGB0004585329",
+    "date": {
+      "hour": 12,
+      "minute": 5,
+      "nano": 0,
+      "second": 0,
+      "dayOfMonth": 26,
+      "dayOfWeek": "WEDNESDAY",
+      "dayOfYear": 116,
+      "month": "APRIL",
+      "monthValue": 4,
+      "year": 2017,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      }
+    },
+    "incassantId": "NL89DBA343669660000",
+    "frozen": false
+  },
+  {
+    "id": 121212,
+    "amount": 82.25,
+    "comment": "Besured-FACTNR 70343558 DEB 2095141674-Zorgverzekering-",
+    "receiver": "CARESCO BV",
+    "receiverIban": "NL50ABNA0479966524",
+    "date": {
+      "hour": 9,
+      "minute": 0,
+      "nano": 0,
+      "second": 0,
+      "dayOfMonth": 18,
+      "dayOfWeek": "TUESDAY",
+      "dayOfYear": 108,
+      "month": "APRIL",
+      "monthValue": 4,
+      "year": 2017,
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      }
+    },
+    "incassantId": "NL24ZZZ557727650000",
+    "frozen": false
+  }
+]
+
+        }
+    }
+}

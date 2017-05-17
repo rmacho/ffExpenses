@@ -1,0 +1,14 @@
+{
+    "expression": "saldo",
+    "method": "GET",
+    "name": "Get saldo",
+    "isArray": true,
+    "responses": {
+        "transaction_success" : {
+            "default": true,
+            "status": 200,
+            "data": [1140.46]
+
+        }
+    }
+}
